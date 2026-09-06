@@ -1,0 +1,9 @@
+###Simple test code to check the Pico W Micro USB connection to the PC is working###
+import machine
+import time
+led = machine.Pin("LED", machine.Pin.OUT)
+led.on()
+time.sleep(3)
+led.off()
+
+
