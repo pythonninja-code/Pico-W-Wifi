@@ -30,18 +30,44 @@ def open_socket(ip):
     return(connection)
 
 def webpage(temperature, state):
-    #Template HTML
+    #HTML web page containing buttons
     html = f"""
             <!DOCTYPE html>
             <html>
-            <form action="./lighton">
-            <input type="submit" value="Light on" />
-            </form>
-            <form action="./lightoff">
-            <input type="submit" value="Light off" />
-            </form>
-            <p>LED is {state}</p>
-            <p>Temperature is {temperature}</p>
+                <head> 
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <style>
+                      body {{
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                        margin-top: 30px;
+                      }}
+                      form {{
+                        margin: 15px 0;
+                      }}
+                      input[type="submit"] {{
+                        font-size: 24px;
+                        padding: 20px 40px;
+                        width: 90%;
+                        border-radius: 10px;
+                        border: none;
+                        background-color: #007BFF;
+                        color: white;
+                      }}
+                      input[type="submit"]:active {{
+                        background-color: #0056b3;
+                      }}
+                    </style>
+                </head>
+            <body>
+                <form action="./lighton">
+                <input type="submit" value="Light on" />
+                </form>
+                <form action="./lightoff">
+                <input type="submit" value="Light off" />
+                </form>
+                <p>LED is {state}</p>
+                <p>Temperature is {temperature}</p>
             </body>
             </html>
             """
@@ -76,4 +102,6 @@ try:
 except KeyboardInterrupt:
     machine.reset()
     
+
+
 
