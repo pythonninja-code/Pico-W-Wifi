@@ -1,0 +1,8 @@
+#This scan program checks your Pico W can listen out for nearby wifi signals#
+#Use this when troubleshooting to check your Pico W is working#
+import network
+wlan = network.WLAN(network.STA_IF)
+print("Activating...")
+wlan.active(True)
+print("Scanning...")
+print(wlan.scan())
